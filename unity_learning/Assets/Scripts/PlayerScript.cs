@@ -13,9 +13,15 @@ public class PlayerScript : MonoBehaviour
 
 	// FixedUpdate is called once per frame.
 	void FixedUpdate() {
-		transform.Translate(
-			Vector3.forward * 0.3f * Input.GetAxis("Vertical"));
-		transform.Translate(
-			Vector3.right * 0.2f * Input.GetAxis("Horizontal"));
+		float zSpeed = 0.3f * Input.GetAxis("Vertical");
+		float xSpeed = 0.2f * Input.GetAxis("Horizontal");
+		//*
+		transform.Translate(Vector3.forward * zSpeed);
+		transform.Translate(Vector3.right * xSpeed);
+		//*/
+		/*
+		rigidbody.velocity.z = zSpeed;
+		rigidbody.velocity.x = xSpeed;
+		//*/
 	}
 }
