@@ -32,7 +32,7 @@ public class PlayerScript : MonoBehaviour
 			GameObject projectile =
 				GameObject.CreatePrimitive(PrimitiveType.Sphere);
 			// Copies the positon.
-			projectile.transform.position = transform.position * 1;
+			projectile.transform.position = transform.position + new Vector3(0f, 0f, 1.5f);
 			System.Type ProjectileScript =
 				System.Type.GetType ("ProjectileScript,Assembly-CSharp");
 			projectile.AddComponent(ProjectileScript);

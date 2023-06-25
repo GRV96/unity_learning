@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-	// Start is called before the first frame update
-	void Start()
-	{
+	// Start is called before the first frame update.
+	void Start() {
 		// Rien
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
+	void OnCollisionEnter(Collision collision) {
+		print("Collision!");
+		Destroy(gameObject);
+	}
+
+	// FixedUpdate is called once per frame.
+	void FixedUpdate() {
 		float deltaZ = 0.5f;
 		transform.Translate(Vector3.forward * deltaZ);
 	}
