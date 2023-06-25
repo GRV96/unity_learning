@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -27,4 +28,18 @@ public class PlayerScript : MonoBehaviour
 			rigidbody.position + new Vector3(deltaX, 0f, deltaZ));
 		//*/
 	}
+
+	//*
+	void OnKeyDown(KeyDownEvent kde) {
+		if(kde.character == ' ') {
+			Debug.Log("Espace");
+			GameObject projectile =
+				GameObject.CreatePrimitive(PrimitiveType.Sphere);
+			// Copies the positon.
+			projectile.transform.position = transform.position * 1;
+			System.Type ProjectileScript =
+				System.Type.GetType ("ProjectileScript,Assembly-CSharp");
+			projectile.AddComponent(ProjectileScript);
+		}
+	}//*/
 }
