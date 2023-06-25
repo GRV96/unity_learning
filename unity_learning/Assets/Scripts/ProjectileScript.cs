@@ -13,7 +13,7 @@ public class ProjectileScript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		float deltaZ = 0.3f;
+		float deltaZ = 0.5f;
 		transform.Translate(Vector3.forward * deltaZ);
 	}
 }

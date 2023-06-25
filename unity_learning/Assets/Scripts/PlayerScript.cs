@@ -27,12 +27,8 @@ public class PlayerScript : MonoBehaviour
 		rigidbody.MovePosition(
 			rigidbody.position + new Vector3(deltaX, 0f, deltaZ));
 		//*/
-	}
 
-	//*
-	void OnKeyDown(KeyDownEvent kde) {
-		if(kde.character == ' ') {
-			Debug.Log("Espace");
+		if(Input.GetKeyDown("space")) {
 			GameObject projectile =
 				GameObject.CreatePrimitive(PrimitiveType.Sphere);
 			// Copies the positon.
@@ -41,5 +37,5 @@ public class PlayerScript : MonoBehaviour
 				System.Type.GetType ("ProjectileScript,Assembly-CSharp");
 			projectile.AddComponent(ProjectileScript);
 		}
-	}//*/
+	}
 }
