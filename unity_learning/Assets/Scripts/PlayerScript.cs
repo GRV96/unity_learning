@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -26,5 +27,15 @@ public class PlayerScript : MonoBehaviour
 		rigidbody.MovePosition(
 			rigidbody.position + new Vector3(deltaX, 0f, deltaZ));
 		//*/
+
+		if(Input.GetKeyDown("space")) {
+			GameObject projectile =
+				GameObject.CreatePrimitive(PrimitiveType.Sphere);
+			// Copies the positon.
+			projectile.transform.position = transform.position + new Vector3(0f, 0f, 1.5f);
+			System.Type ProjectileScript =
+				System.Type.GetType ("ProjectileScript,Assembly-CSharp");
+			projectile.AddComponent(ProjectileScript);
+		}
 	}
 }
