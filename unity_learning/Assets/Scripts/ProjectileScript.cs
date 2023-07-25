@@ -6,11 +6,11 @@ public class ProjectileScript: AutoMovable {
 		Init(25f, false);
 	}
 
-	void OnCollisionEnter(Collision collision) {
-		Destroy(gameObject);
-	}
-
 	void FixedUpdate() {
 		Move();
+	}
+
+	void OnCollisionEnter(Collision collision) {
+		Destroy(gameObject);
 	}
 }
