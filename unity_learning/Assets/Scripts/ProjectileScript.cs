@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileScript : MonoBehaviour
-{
-	// Start is called before the first frame update.
+public class ProjectileScript: MonoBehaviour {
+	private Rigidbody _rigidbody = null;
+	private Vector3 _positionDelta = Vector3.forward * 25f;
+
 	void Start() {
-		// Rien
+		//_rigidbody = GetComponent<Rigidbody>();
 	}
 
 	void OnCollisionEnter(Collision collision) {
@@ -14,9 +15,11 @@ public class ProjectileScript : MonoBehaviour
 		Destroy(gameObject);
 	}
 
-	// FixedUpdate is called once per frame.
 	void FixedUpdate() {
-		float deltaZ = 0.5f;
-		transform.Translate(Vector3.forward * deltaZ);
+		/*
+		_rigidbody.MovePosition(
+			_rigidbody.position + _positionDelta * Time.deltaTime);
+		//*/
+		transform.Translate(_positionDelta * Time.deltaTime);
 	}
 }
