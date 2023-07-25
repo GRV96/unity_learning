@@ -12,7 +12,6 @@ public class ProjectileScript: MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		print("Collision!");
 		Destroy(gameObject);
 	}
 
