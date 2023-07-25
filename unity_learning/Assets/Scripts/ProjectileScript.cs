@@ -1,12 +1,9 @@
 using UnityEngine;
 
-public class ProjectileScript: MonoBehaviour {
-	private Rigidbody _rigidbody = null;
-	private Vector3 _positionDelta = Vector3.forward * 25f;
+public class ProjectileScript: AutoMovable {
 
 	void Start() {
-		_rigidbody = gameObject.AddComponent<Rigidbody>();
-		_rigidbody.useGravity = false;
+		Init(25f, false);
 	}
 
 	void OnCollisionEnter(Collision collision) {
@@ -14,7 +11,6 @@ public class ProjectileScript: MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		_rigidbody.MovePosition(
-			_rigidbody.position + _positionDelta * Time.deltaTime);
+		Move();
 	}
 }
