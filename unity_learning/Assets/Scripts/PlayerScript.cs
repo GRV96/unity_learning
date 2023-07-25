@@ -20,13 +20,17 @@ public class PlayerScript: MonoBehaviour {
 			_rigidbody.position + new Vector3(deltaX, 0f, deltaZ));
 
 		if(Input.GetKeyDown("space")) {
-			GameObject projectile =
-				GameObject.CreatePrimitive(PrimitiveType.Sphere);
-			projectile.transform.position =
-				transform.position + _projectileGap;
-			System.Type ProjectileScript =
-				System.Type.GetType ("ProjectileScript,Assembly-CSharp");
-			projectile.AddComponent(ProjectileScript);
+			ShootProjectile();
 		}
+	}
+
+	private void ShootProjectile() {
+		GameObject projectile =
+			GameObject.CreatePrimitive(PrimitiveType.Sphere);
+		projectile.transform.position =
+			transform.position + _projectileGap;
+		System.Type ProjectileScript =
+			System.Type.GetType ("ProjectileScript,Assembly-CSharp");
+		projectile.AddComponent(ProjectileScript);
 	}
 }
