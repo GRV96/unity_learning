@@ -24,6 +24,12 @@ public class PlayerScript: MonoBehaviour {
 		}
 	}
 
+	void OnCollisionEnter(Collision collision) {
+		if(collision.gameObject.tag.Equals("Enemy")) {
+			Destroy(gameObject);
+		}
+	}
+
 	private void ShootProjectile() {
 		GameObject projectile =
 			GameObject.CreatePrimitive(PrimitiveType.Sphere);
