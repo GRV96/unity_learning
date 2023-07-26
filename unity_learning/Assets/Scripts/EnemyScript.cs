@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyScript: AutoMovable {
 
 	void Start() {
-		Init(-10f, false, RigidbodyConstraints.FreezeRotation);
+		Init(-15f, false, RigidbodyConstraints.FreezeRotation);
 		gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
 	}
 

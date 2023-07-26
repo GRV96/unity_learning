@@ -6,6 +6,9 @@ public class PlayerScript: MonoBehaviour {
 	// The initial distance between the player and the projectile
 	private Vector3 _projectileGap = new Vector3(0f, 0f, 1.5f);
 
+	private System.Type ProjectileScript =
+		System.Type.GetType("ProjectileScript,Assembly-CSharp");
+
 	void Start() {
 		_rigidbody = GetComponent<Rigidbody>();
 	}
@@ -26,8 +29,6 @@ public class PlayerScript: MonoBehaviour {
 			GameObject.CreatePrimitive(PrimitiveType.Sphere);
 		projectile.transform.position =
 			transform.position + _projectileGap;
-		System.Type ProjectileScript =
-			System.Type.GetType ("ProjectileScript,Assembly-CSharp");
 		projectile.AddComponent(ProjectileScript);
 	}
 }
