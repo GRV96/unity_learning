@@ -41,7 +41,6 @@ public class BackWallScript: MonoBehaviour {
 		_timer = 0;
 		_randomizer = new System.Random();
 		float zCoord = transform.position.z - transform.localScale.z/2 - 0.7f;
-		print(zCoord);
 		InitSpawnPoints(1.2f, zCoord);
 	}
 
