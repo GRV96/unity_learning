@@ -19,7 +19,7 @@ public class PlayerScript: MonoBehaviour {
 		_rigidbody.MovePosition(
 			_rigidbody.position + new Vector3(deltaX, 0f, deltaZ));
 
-		if(Input.GetKeyDown("space")) {
+		if(Input.GetKeyDown("s")) {
 			ShootProjectile();
 		}
 	}
