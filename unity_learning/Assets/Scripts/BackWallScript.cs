@@ -12,7 +12,7 @@ public class BackWallScript: MonoBehaviour {
 	private Vector3[] _spawnPoints = null;
 
 	private System.Type EnemyScript =
-			System.Type.GetType("EnemyScript,Assembly-CSharp");
+		System.Type.GetType("EnemyScript,Assembly-CSharp");
 
 	private void InitSpawnPoints(float pYCoord, float pZCoord) {
 		float width = transform.localScale.x;
