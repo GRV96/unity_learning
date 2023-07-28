@@ -18,7 +18,7 @@ public class BackWallScript: MonoBehaviour {
 		float width = transform.localScale.x;
 		int nbIntervals = _nbSpawnPoints + 1;
 		float intervalWidth = width / nbIntervals;
-		float firstSpawnX = -width/2 + intervalWidth;
+		float firstSpawnX = transform.position.x - width/2 + intervalWidth;
 
 		_spawnPoints = new Vector3[_nbSpawnPoints];
 		_spawnPoints[0] = new Vector3(firstSpawnX, pYCoord, pZCoord);
