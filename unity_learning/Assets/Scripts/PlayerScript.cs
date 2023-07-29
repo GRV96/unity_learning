@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class PlayerScript: MonoBehaviour {
-	private GameStatus _gameStatus;
+	private GameStatus _gameStatus = GameStatus.Instance;
 
 	private Rigidbody _rigidbody = null;
 
@@ -14,7 +14,6 @@ public class PlayerScript: MonoBehaviour {
 	private int _lives;
 
 	void Start() {
-		_gameStatus = GameObject.Find("GameStatus").GetComponent<GameStatus>();
 		_rigidbody = GetComponent<Rigidbody>();
 		Reset();
 	}

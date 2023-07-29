@@ -1,10 +1,9 @@
 using UnityEngine;
 
 public class EnemyScript: AutoMovable {
-	private GameStatus _gameStatus;
+	private GameStatus _gameStatus = GameStatus.Instance;
 
 	void Start() {
-		_gameStatus = GameObject.Find("GameStatus").GetComponent<GameStatus>();
 		Init(-15f, false, RigidbodyConstraints.FreezeRotation);
 		gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
 		gameObject.tag = "Enemy";

@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class GameStatus: MonoBehaviour {
+public class GameStatus {
 	private const string STATUS_ALIVE = "alive";
 	private const string STATUS_DEAD = "dead";
 
@@ -16,13 +14,17 @@ public class GameStatus: MonoBehaviour {
 		set { _enemiesKilled = value; }
 	}
 
+	// This class is a Singleton.
+	private static GameStatus _instance = new GameStatus();
+	public static GameStatus Instance { get { return _instance; } }
+
 	private bool _playerIsAlive;
 	public bool PlayerIsAlive {
 		get { return _playerIsAlive; }
 		set { _playerIsAlive = value; }
 	}
 
-	void Start() {
+	private GameStatus() {
 		Reset();
 	}
 
