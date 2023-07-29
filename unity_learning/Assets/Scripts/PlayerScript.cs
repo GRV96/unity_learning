@@ -53,6 +53,7 @@ public class PlayerScript: MonoBehaviour {
 			GameObject.CreatePrimitive(PrimitiveType.Sphere);
 		projectile.transform.position =
 			transform.position + _projectileGap;
+		projectile.tag = "Projectile";
 		projectile.AddComponent(ProjectileScript);
 	}
 }

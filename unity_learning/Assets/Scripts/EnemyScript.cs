@@ -1,8 +1,10 @@
 using UnityEngine;
 
 public class EnemyScript: AutoMovable {
+	private GameStatus _gameStatus;
 
 	void Start() {
+		_gameStatus = GameObject.Find("GameStatus").GetComponent<GameStatus>();
 		Init(-15f, false, RigidbodyConstraints.FreezeRotation);
 		gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
 		gameObject.tag = "Enemy";
@@ -13,6 +15,17 @@ public class EnemyScript: AutoMovable {
 	}
 
 	void OnCollisionEnter(Collision collision) {
+		string tag = collision.gameObject.tag;
+
+		switch(tag) {
+			case "Projectile":
+				_gameStatus.EnemiesKilled++;
+				break;
+			case "Wall":
+				_gameStatus.EnemiesEscaped++;
+				break;
+		}
+
 		Destroy(gameObject);
 	}
 }

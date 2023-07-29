@@ -1,6 +1,9 @@
 using UnityEngine;
 
 public class GameStatus: MonoBehaviour {
+	private const string STATUS_ALIVE = "alive";
+	private const string STATUS_DEAD = "dead";
+
 	private int _enemiesEscaped;
 	public int EnemiesEscaped {
 		get { return _enemiesEscaped; }
@@ -27,5 +30,11 @@ public class GameStatus: MonoBehaviour {
 		_enemiesEscaped = 0;
 		_enemiesKilled = 0;
 		_playerIsAlive = true;
+	}
+
+	public override string ToString() {
+		string lifeStatus = _playerIsAlive? STATUS_ALIVE: STATUS_DEAD;
+		return
+			$"Game status: {lifeStatus}, {_enemiesKilled}, {_enemiesEscaped}";
 	}
 }
