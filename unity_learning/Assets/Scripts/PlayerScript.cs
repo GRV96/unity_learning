@@ -43,7 +43,7 @@ public class PlayerScript: MonoBehaviour {
 		}
 	}
 
-	void Reset() {
+	private void Reset() {
 		_lives = 1;
 		MakePlayerAlive(true);
 	}

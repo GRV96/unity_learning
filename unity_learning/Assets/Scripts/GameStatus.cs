@@ -26,7 +26,7 @@ public class GameStatus: MonoBehaviour {
 		Reset();
 	}
 
-	void Reset() {
+	private void Reset() {
 		_enemiesEscaped = 0;
 		_enemiesKilled = 0;
 		_playerIsAlive = true;
