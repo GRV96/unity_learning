@@ -1,6 +1,8 @@
 using UnityEngine;
 
 public class PlayerScript: MonoBehaviour {
+	private GameStatus _gameStatus = GameStatus.Instance;
+
 	private Rigidbody _rigidbody = null;
 
 	// The initial distance between the player and the projectile
@@ -9,8 +11,11 @@ public class PlayerScript: MonoBehaviour {
 	private System.Type ProjectileScript =
 		System.Type.GetType("ProjectileScript,Assembly-CSharp");
 
+	private int _lives;
+
 	void Start() {
 		_rigidbody = GetComponent<Rigidbody>();
+		Reset();
 	}
 
 	void FixedUpdate() {
@@ -24,10 +29,22 @@ public class PlayerScript: MonoBehaviour {
 		}
 	}
 
+	private void MakePlayerAlive(bool pIsAlive) {
+		gameObject.SetActive(pIsAlive);
+		_gameStatus.PlayerIsAlive = pIsAlive;
+	}
+
 	void OnCollisionEnter(Collision collision) {
 		if(collision.gameObject.tag.Equals("Enemy")) {
-			Destroy(gameObject);
+			if(--_lives == 0) {
+				MakePlayerAlive(false);
+			}
 		}
+	}
+
+	private void Reset() {
+		_lives = 1;
+		MakePlayerAlive(true);
 	}
 
 	private void ShootProjectile() {

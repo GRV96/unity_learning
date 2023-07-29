@@ -4,6 +4,8 @@ using UnityEngine;
 public class BackWallScript: MonoBehaviour {
 	private const float SPAWN_TIME_INTERVAL = 1.5f; // seconds
 
+	private GameStatus _gameStatus = GameStatus.Instance;
+
 	private int _nbSpawnPoints;
 	private float _timer; // seconds
 	private System.Random _randomizer;
@@ -49,7 +51,10 @@ public class BackWallScript: MonoBehaviour {
 
 		if(_timer >= SPAWN_TIME_INTERVAL) {
 			_timer = 0;
-			SpawnEnemy();
+
+			if(_gameStatus.PlayerIsAlive) {
+				SpawnEnemy();
+			}
 		}
 	}
 }
